@@ -192,9 +192,9 @@ public class Ir implements Runnable{
 
     public static double getPMI(String w1, String w2, Matrix m, int total){
 
-        int n = m.tcm.get(w1).get(w2) / total;
+        double n = ((double)m.tcm.get(w1).get(w2) + 1e-10) * total;
 
-        int d = 0;
+        double d = 0;
         int word1 = 0;
         int word2 = 0;
 
@@ -208,7 +208,7 @@ public class Ir implements Runnable{
             }
         }
 
-        d = (word1 * word2) / total;
+        d = ((double)word1 * word2);
 
         double pmi = 0.0;
         
