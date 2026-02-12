@@ -106,17 +106,17 @@ public class Ir implements Runnable{
     public static void main(String args[]){
         try{
             File file = null;
+            File[] files = null;
         if(args.length > 0){
             file = new File(args[0]);
-            
+            files = file.listFiles();
         }
-        File[] files = file.listFiles();
 
         ArrayList<Thread> l = new ArrayList<Thread>();
         Matrix m = new Matrix();
         m.tcm = new ConcurrentHashMap<String, ConcurrentHashMap<String, Integer>>();
         Semaphore sem = new Semaphore(5);
-
+        if(files != null){
         for(File f : files){
 
             sem.acquire();
@@ -162,6 +162,11 @@ public class Ir implements Runnable{
 
 
         sc.close();
+    }
+    else{
+        System.out.println("Please provide folder of valid files");
+        System.exit(0);
+    }
 
         }catch(Exception e){
             e.printStackTrace();
