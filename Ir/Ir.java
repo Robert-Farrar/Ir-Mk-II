@@ -58,13 +58,6 @@ public class Ir implements Runnable{
 
     private void parse(String[] w){
         for(int i = 0; i < w.length; i++){
-            // int j = i - 1;
-            // int count = 0;
-            // while(j >= 0 && count < k){
-            //     m.putInTcm(w, j, i);
-            //     j --;
-            //     count++;
-            // }
 
             int  j = i + 1; 
             int count = 0;
